@@ -33,12 +33,81 @@
           "paybum",
           "verification"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceParam"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
         "operationId": "post-verify",
-        "description": "Returns details of voucher if it is consumed/invalid or redeemed or not"
+        "description": "Returns details of voucher if it is consumed/invalid or redeemed or not",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ServiceParam"
+            },
+            "description": "Request body parameter is required"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept=application/json",
+            "required": true
+          }
+        ]
       }
     }
   },
-  "definitions": {},
+  "definitions": {
+    "ServiceParam": {
+      "title": "ServiceParam",
+      "type": "object",
+      "properties": {
+        "voucherData": {
+          "type": "string"
+        },
+        "responseData": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "voucherNo": {
+          "type": "string"
+        },
+        "partnerName": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "transactionId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "voucherData",
+        "userId"
+      ]
+    }
+  },
   "basePath": "/paybum"
 }
