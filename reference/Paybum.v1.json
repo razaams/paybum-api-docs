@@ -2,9 +2,20 @@
   "swagger": "2.0",
   "info": {
     "title": "Paybum",
-    "version": "1.0"
+    "version": "1.0",
+    "description": "Paybum REST API",
+    "contact": {
+      "name": "contact person",
+      "url": "https://contact-us.com",
+      "email": "contact@email.com"
+    },
+    "termsOfService": "https://terms.service.com",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
   },
-  "host": "localhost:3000",
+  "host": "10.10.11.80:9295",
   "schemes": [
     "http"
   ],
@@ -14,6 +25,20 @@
   "consumes": [
     "application/json"
   ],
-  "paths": {},
-  "definitions": {}
+  "paths": {
+    "/verify": {
+      "post": {
+        "summary": "Voucher verification endpoint",
+        "tags": [
+          "paybum",
+          "verification"
+        ],
+        "responses": {},
+        "operationId": "post-verify",
+        "description": "Returns details of voucher if it is consumed/invalid or redeemed or not"
+      }
+    }
+  },
+  "definitions": {},
+  "basePath": "/paybum"
 }
