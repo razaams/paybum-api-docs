@@ -74,6 +74,56 @@
           }
         ]
       }
+    },
+    "/voucher": {
+      "post": {
+        "summary": "Paybum voucher details endpoint",
+        "tags": [
+          "paybum",
+          "voucher"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceParam"
+            },
+            "headers": {}
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "operationId": "post-voucher",
+        "description": "Returns details of voucher if it is consumed or not",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ServiceParam"
+            },
+            "description": "Request body parameter is required"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept=application/json",
+            "required": true
+          }
+        ]
+      }
     }
   },
   "definitions": {
